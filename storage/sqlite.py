@@ -5,7 +5,7 @@ class SQLiteStore:
     def __init__(self, db_path="data/markov.db"):
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
         self.conn = sqlite3.connect(db_path)
-        self.conn.execute("PRAGMA journal_mode=WAL")
+        # self.conn.execute("PRAGMA journal_mode=WAL")
 
     def init_schema(self):
         with open("storage/migrations.sql") as f:
